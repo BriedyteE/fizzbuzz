@@ -5,12 +5,23 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/_mocha src/test.js"
+    "test": "node ./node_modules/mocha/bin/_mocha   src/test.js",
+    "coverage": "nyc --reporter=lcov --reporter=text --all npm run test"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "node_modules",
+      "test"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
   }
 }
